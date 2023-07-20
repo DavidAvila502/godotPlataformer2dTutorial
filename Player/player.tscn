@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bblu87onvilea"]
+[gd_scene load_steps=12 format=3 uid="uid://bblu87onvilea"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_5wshy"]
 [ext_resource type="Texture2D" uid="uid://bei7x67psb4c4" path="res://Assets_PixelAdventure/Main Characters/Mask Dude.png" id="1_e7hw2"]
 [ext_resource type="Script" path="res://Player/Camera2D.gd" id="3_1wj8c"]
+[ext_resource type="LabelSettings" uid="uid://du4edvokqutjs" path="res://Player/GUIText.tres" id="4_wuxln"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tr316"]
 size = Vector2(22, 24)
@@ -99,6 +100,7 @@ _data = {
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_5wshy")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_e7hw2")
@@ -117,3 +119,20 @@ libraries = {
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("3_1wj8c")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="FrutasLabel2" type="Label" parent="CanvasLayer/HBoxContainer"]
+texture_filter = 2
+layout_mode = 2
+text = "Frutas:"
+label_settings = ExtResource("4_wuxln")
+
+[node name="FrutasLabel" type="Label" parent="CanvasLayer/HBoxContainer"]
+texture_filter = 2
+layout_mode = 2
+label_settings = ExtResource("4_wuxln")

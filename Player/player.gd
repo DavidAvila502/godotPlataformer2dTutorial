@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Player
+
 #Variables
 var speed := 120
 var direccion := 0.0
@@ -7,6 +9,11 @@ var jump := 250
 const gravity:= 9
 @onready var animation := $AnimationPlayer
 @onready var sprite := $Sprite2D
+@onready var frutaslabel :=  $CanvasLayer/HBoxContainer/FrutasLabel
+
+func _ready():
+	Global.player = self
+
 
 func _physics_process(delta):
 	
@@ -31,3 +38,8 @@ func _physics_process(delta):
 	
 	
 	move_and_slide()
+	
+	
+func atualizaInterfazFrutas():
+	frutaslabel.text = str(Global.frutas)
+		
